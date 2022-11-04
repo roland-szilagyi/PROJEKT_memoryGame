@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 14px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid blue;
+}
+
+/* ----- HEADER ----- */
+
+h1 {
+    outline: 1px solid lightseagreen;
+}
+
+/* ----- MAIN ----- */
+
+.main-items {
+    outline: 1px solid green;
+    padding: 1.5rem;
+}
+
+/* ----- FOOTER ----- */
+
+footer p {
+    outline: 1px solid red;
+}
