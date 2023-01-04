@@ -6,10 +6,8 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex;
-    align-items: center;
+    background-color: #2A2C2E;
+    color: white;
 }
 
 .flex {
@@ -17,24 +15,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    outline: 1px solid blue;
+    outline: 1px solid white;
 }
-
-/* ----- HEADER ----- */
-
-h1 {
-    outline: 1px solid lightseagreen;
-}
-
-/* ----- MAIN ----- */
 
 .main-items {
-    outline: 1px solid green;
-    padding: 1.5rem;
-}
-
-/* ----- FOOTER ----- */
-
-footer p {
-    outline: 1px solid red;
+    outline: 1px solid white;
+    padding: 3rem;
 }
