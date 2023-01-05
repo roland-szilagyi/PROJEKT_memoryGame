@@ -14,7 +14,35 @@ let pushBox2 = [];
 
 /* -------------------------------------------------- */
 
-// kártya szelektorok
+// ujrakeveres gomb
+function reShuffle()
+
+// kártyaértékek betöltése a dobozokba
+document.querySelector('.js-mi1').innerHTML = cardsShuffle[0]
+document.querySelector('.js-mi2').innerHTML = cardsShuffle[1]
+document.querySelector('.js-mi3').innerHTML = cardsShuffle[2]
+document.querySelector('.js-mi4').innerHTML = cardsShuffle[3]
+document.querySelector('.js-mi5').innerHTML = cardsShuffle[4]
+document.querySelector('.js-mi6').innerHTML = cardsShuffle[5]
+
+// ellenörzö függvény, hogy van-e már 2 szám a tömbben
+function ellenorzo() {
+    if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
+        console.log("megvan a két szám")
+        if ( pushBox1[0] === pushBox2[0] ) {
+            console.log("A két szám ugyanaz!")
+            pushBox1.length = 0;
+            pushBox2.length = 0;
+        }
+        else {
+            console.log("A két szám nem ugyanaz!")
+        }
+        pushBox1.length = 0;
+        pushBox2.length = 0;
+    }
+}
+
+// egy kártya kiválasztása
 document.querySelector('.js-mi1')
     .addEventListener('click', card1Load)
 
@@ -33,42 +61,12 @@ document.querySelector('.js-mi5')
 document.querySelector('.js-mi6')
     .addEventListener('click', card6Load)
 
-// kártyaértékek betöltése a dobozokba
-document.querySelector('.js-mi1').innerHTML = cardsShuffle[0]
-document.querySelector('.js-mi2').innerHTML = cardsShuffle[1]
-document.querySelector('.js-mi3').innerHTML = cardsShuffle[2]
-document.querySelector('.js-mi4').innerHTML = cardsShuffle[3]
-document.querySelector('.js-mi5').innerHTML = cardsShuffle[4]
-document.querySelector('.js-mi6').innerHTML = cardsShuffle[5]
-
-// ellenörzö függvény. Vannak-e már számok a tömbökben
-function ellenorzo() {
-    if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
-        console.log("megvan a két szám")
-        if ( pushBox1[0] === pushBox2[0] ) {
-            console.log("A két szám ugyanaz!")
-            pushBox1.length = 0;
-            pushBox2.length = 0;
-        }
-        else {
-            console.log("A két szám nem ugyanaz!")
-        }
-        pushBox1.length = 0;
-        pushBox2.length = 0;
-    }
-}
-
-// egy szám egy körben csak 1x kattintható
-// ha rákattintok 1 számra, arra többet nem lehet
-
 // klikkre a kártya száma a gyüjtökbe töltödik
 // vagy ebbe vagy abba
 function card1Load() {
-    color1Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[0])
     }
-
     else {
         pushBox2.push(cardsShuffle[0])
     }
@@ -77,7 +75,6 @@ function card1Load() {
 }
 
 function card2Load() {
-    color2Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[1])
     }
@@ -130,44 +127,4 @@ function card6Load() {
     }
     console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
     ellenorzo()
-}
-
-// beszinezi a kiválaszott kártyát 
-function color1Add() {
-    document.querySelector('.js-mi1').classList.add('color1')
-}
-function color2Add() {
-    document.querySelector('.js-mi2').classList.add('color1')
-}
-function color3Add() {
-    document.querySelector('.js-mi3').classList.add('color1')
-}
-function color4Add() {
-    document.querySelector('.js-mi4').classList.add('color1')
-}
-function color5Add() {
-    document.querySelector('.js-mi5').classList.add('color1')
-}
-function color6Add() {
-    document.querySelector('.js-mi6').classList.add('color1')
-}
-
-// kiveszi a szint a kiválaszott kartyából
-function color1Remove() {
-    document.querySelector('.js-mi1').classList.remove('color1')
-}
-function color2Remove() {
-    document.querySelector('.js-mi2').classList.remove('color1')
-}
-function color3Remove() {
-    document.querySelector('.js-mi3').classList.remove('color1')
-}
-function color4Remove() {
-    document.querySelector('.js-mi4').classList.remove('color1')
-}
-function color5Remove() {
-    document.querySelector('.js-mi5').classList.remove('color1')
-}
-function color6Remove() {
-    document.querySelector('.js-mi6').classList.remove('color1')
 }

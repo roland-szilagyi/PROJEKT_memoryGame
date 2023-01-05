@@ -22,3 +22,7 @@ body {
     outline: 1px solid white;
     padding: 3rem;
 }
+
+.color1 {
+    background-color: green;
+}
