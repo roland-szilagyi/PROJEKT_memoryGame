@@ -36,6 +36,7 @@ header {
 main {
         outline: 1px solid white;
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 footer {
