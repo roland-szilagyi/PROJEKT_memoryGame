@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 0;
+    font-size: 14px;
+}
+
+img {
+    width: 30%;
+    height: auto;
+}
+
+body {
+    background-image: url(../assets/img/greenTable.jpg);
+    background-size: cover;
+    color: white;
+}
+
+/* ---------- BODY ---------- */
+
+header, main, footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+        outline: 1px solid white;
+    height: 10vh;
+}
+
+main {
+        outline: 1px solid white;
+    height: 70vh;
+    flex-direction: column;
+}
+
+footer {
+        outline: 1px solid white;
+    height: 10vh;
+}
+
+/* ---------- CONTENTS DETAILS ---------- */
+
+.contents {
+    padding: 1rem;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+}
