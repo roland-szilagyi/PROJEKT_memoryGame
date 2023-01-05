@@ -14,6 +14,11 @@ body {
     background-image: url(../assets/img/greenTable2.jpeg);
     background-size: cover;
     color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 /* ---------- BODY ---------- */
@@ -26,18 +31,15 @@ header, main, footer {
 
 header {
         outline: 1px solid white;
-    height: 10vh;
 }
 
 main {
         outline: 1px solid white;
-    height: 70vh;
     flex-direction: column;
 }
 
 footer {
         outline: 1px solid white;
-    height: 10vh;
 }
 
 /* ---------- CONTENTS DETAILS ---------- */
