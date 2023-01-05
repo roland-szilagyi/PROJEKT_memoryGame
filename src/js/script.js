@@ -1,5 +1,5 @@
 // kártya értékek
-let cardsValues = [1, 1, 2, 2, 3, 3]
+let cardsValues = ["A", "B", "C", "1", "2", "3"]
 
 // kártya keverö
 let cardsShuffle = cardsValues
@@ -43,6 +43,28 @@ document.querySelector('.js-mi6').innerHTML = cardsShuffle[5]
 
 // ellenörzö függvény. Vannak-e már számok a tömbökben
 function ellenorzo() {
+    // A1 B2 C3
+    if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
+        let eredmeny = pushBox1 + pushBox2      // string eredmeny
+        console.log(eredmeny, typeof eredmeny)
+        console.log("megvan a két szám")
+
+        if ( ( ( eredmeny === "A1" ) || ( eredmeny === "1A" ) ) ||
+            ( ( eredmeny === "B2" ) || ( eredmeny === "2B" ) ) ||
+            ( ( eredmeny === "C3" ) || ( eredmeny === "3C" ) ) ) {
+            console.log("Megtaláltad a párt")
+            pushBox1.length = 0;
+            pushBox2.length = 0;
+        }
+        else {
+            console.log("Nem találtad meg a párt")
+            pushBox1.length = 0;
+            pushBox2.length = 0;
+        }
+    }
+}
+
+/*function ellenorzo() {
     if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
         console.log("megvan a két szám")
         if ( pushBox1[0] === pushBox2[0] ) {
@@ -56,7 +78,7 @@ function ellenorzo() {
         pushBox1.length = 0;
         pushBox2.length = 0;
     }
-}
+}*/
 
 // egy szám egy körben csak 1x kattintható
 // ha rákattintok 1 számra, arra többet nem lehet
@@ -67,6 +89,12 @@ function card1Load() {
     color1Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[0])
+        console.log(typeof pushBox1)
+    }
+
+    else if ( pushBox1 == cardsShuffle[0] ) {
+        pushBox1 = Array(cardsShuffle[0])
+        console.log(typeof pushBox1)
     }
 
     else {
@@ -81,6 +109,12 @@ function card2Load() {
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[1])
     }
+
+    else if ( pushBox1 == cardsShuffle[1] ) {
+        pushBox1 = Array(cardsShuffle[1])
+        console.log(typeof pushBox1)
+    }
+
     else {
         pushBox2.push(cardsShuffle[1])
     }
@@ -89,9 +123,17 @@ function card2Load() {
 }
 
 function card3Load() {
+    color3Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[2])
+        console.log(typeof pushBox1)
     }
+
+    else if ( pushBox1 == cardsShuffle[2] ) {
+        pushBox1 = Array(cardsShuffle[2])
+        console.log(typeof pushBox1)
+    }
+
     else {
         pushBox2.push(cardsShuffle[2])
     }
@@ -100,9 +142,16 @@ function card3Load() {
 }
 
 function card4Load() {
+    color4Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[3])
     }
+
+    else if ( pushBox1 == cardsShuffle[3] ) {
+        pushBox1 = Array(cardsShuffle[3])
+        console.log(typeof pushBox1)
+    }
+
     else {
         pushBox2.push(cardsShuffle[3])
     }
@@ -111,9 +160,17 @@ function card4Load() {
 }
 
 function card5Load() {
+    color5Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[4])
+        console.log(typeof pushBox1)
     }
+
+    else if ( pushBox1 == cardsShuffle[4] ) {
+        pushBox1 = Array(cardsShuffle[4])
+        console.log(typeof pushBox1)
+    }
+
     else {
         pushBox2.push(cardsShuffle[4])
     }
@@ -122,9 +179,16 @@ function card5Load() {
 }
 
 function card6Load() {
+    color6Add()
     if ( pushBox1.length == 0 ) {
         pushBox1.push(cardsShuffle[5])
     }
+
+    else if ( pushBox1 == cardsShuffle[5] ) {
+        pushBox1 = Array(cardsShuffle[5])
+        console.log(typeof pushBox1)
+    }
+
     else {
         pushBox2.push(cardsShuffle[5])
     }
