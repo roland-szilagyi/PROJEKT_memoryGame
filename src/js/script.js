@@ -12,6 +12,27 @@ console.log(cardsShuffle)
 let pushBox1 = [];
 let pushBox2 = [];
 
+// function kereso() {
+// let i = 0;
+// while ( cardsShuffle[i] != "A" ) {
+//     i += 1
+// }
+// cardsShuffle[i]
+// }
+// kereso()
+
+let A = 0;
+while ( cardsShuffle[A] != "A" ) {
+    A += 1
+}
+console.log("A =", A)
+
+document.querySelector()
+
+
+
+
+
 /* -------------------------------------------------- */
 
 // kártya szelektorok
@@ -41,6 +62,9 @@ document.querySelector('.js-mi4').innerHTML = cardsShuffle[3]
 document.querySelector('.js-mi5').innerHTML = cardsShuffle[4]
 document.querySelector('.js-mi6').innerHTML = cardsShuffle[5]
 
+// ellenörzö függvény - milyen érték van a dobozban?
+
+
 // ellenörzö függvény - megvannak-e a párok
 function ellenorzo() {
     // A1 B2 C3
@@ -61,6 +85,9 @@ function ellenorzo() {
         }
     }
 }
+
+// Kártyaváltozás
+
 
 // klikkre a kártya száma a gyüjtökbe töltödik. vagy ebbe vagy abba
 function card1Load() {
@@ -167,7 +194,9 @@ function card6Load() {
 
 // beszinezi a kiválaszott kártyát 
 function color1Add() {
-    document.querySelector('.js-mi1').classList.add('color1')
+    document.querySelector('.js-mi1').innerHTML = (
+        `<img src="./src/assets/img/card1.svg" alt="card1" class="cards">`
+    )
 }
 function color2Add() {
     document.querySelector('.js-mi2').classList.add('color1')
