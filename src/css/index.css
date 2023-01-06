@@ -6,7 +6,7 @@
 }
 
 img {
-    width: 30%;
+    width: 9rem;
     height: auto;
 }
 
@@ -17,36 +17,38 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
 }
 
 /* ---------- BODY ---------- */
 
-header, main, footer {
+header {
+        outline: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-header {
-        outline: 1px solid white;
-}
-
 main {
         outline: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 footer {
         outline: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ---------- CONTENTS DETAILS ---------- */
 
 .contents {
-    padding: 1rem;
+        outline: 1px solid white;
+    padding: 0.5rem;
 }
 
 .start {

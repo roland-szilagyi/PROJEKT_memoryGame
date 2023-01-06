@@ -6,7 +6,7 @@
 }
 
 img {
-    width: 25%;
+    width: 5rem;
     height: auto;
 }
 
@@ -17,7 +17,6 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 /* ---------- BODY ---------- */
@@ -46,12 +45,12 @@ footer {
 
 .cards {
     padding: 0;
-    margin: 1rem;
+    margin: 0.8rem;
 }
 
 .contents {
         outline: 1px solid white;
-        padding: 0.5rem;
+    padding: 0.5rem;
 }
 
 /* ---------- JS+ ---------- */
