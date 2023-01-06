@@ -22,20 +22,20 @@ body {
 /* ---------- BODY ---------- */
 
 header {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     justify-content: center;
 }
 
 main {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 footer {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -48,8 +48,13 @@ footer {
     margin: 0.8rem;
 }
 
+.cards-container {
+    padding: 0;
+    margin: 0;
+}
+
 .contents {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     padding: 0.5rem;
 }
 
@@ -61,4 +66,8 @@ footer {
 
 .d-none {
     display: none;
+}
+
+.home-link {
+    text-align: center;
 }

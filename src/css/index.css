@@ -22,14 +22,14 @@ body {
 /* ---------- BODY ---------- */
 
 header {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 main {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +38,7 @@ main {
 }
 
 footer {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@ footer {
 /* ---------- CONTENTS DETAILS ---------- */
 
 .contents {
-        outline: 1px solid white;
+        /* outline: 1px solid white; */
     padding: 0.5rem;
 }
 
