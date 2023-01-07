@@ -110,6 +110,7 @@ function cardALoad() {
         pushBox2.push("1")
     }
     console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
+    )
     ellenorzo()
 }
 function cardBLoad() {
@@ -197,6 +198,10 @@ function ellenorzo() {
             hit = true;
             console.log(hit, "Megtaláltad a párt")
             document.querySelector('.js-uzenet').innerHTML = "Megtaláltad a párt"
+
+            // KIKAPCSOLJA AZ EVENT LISTENERT
+            document.querySelector('.active')
+                .removeEventListener('click', cardTurnA)
         }
         else {
             hit = false
@@ -205,13 +210,13 @@ function ellenorzo() {
             setTimeout(Timer, 1000)
             function Timer() {
                 document.querySelector('.active').innerHTML = (
-                    `<img src="./src/assets/img/cardbackB.svg" alt="cardback">`)
+                    `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
                 document.querySelector('.active').classList.remove('active')
             }
             setTimeout(Timer2, 1100)
             function Timer2() {
                 document.querySelector('.active').innerHTML = (
-                    `<img src="./src/assets/img/cardbackB.svg" alt="cardback">`)
+                    `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
                 document.querySelector('.active').classList.remove('active')
             }
         }
