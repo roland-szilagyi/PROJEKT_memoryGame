@@ -110,7 +110,6 @@ function cardALoad() {
         pushBox2.push("1")
     }
     console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
-    )
     ellenorzo()
 }
 function cardBLoad() {
@@ -199,9 +198,12 @@ function ellenorzo() {
             console.log(hit, "Megtaláltad a párt")
             document.querySelector('.js-uzenet').innerHTML = "Megtaláltad a párt"
 
+            document.querySelector('.active').classList.remove('active')
+            document.querySelector('.active').classList.remove('active')
+
             // KIKAPCSOLJA AZ EVENT LISTENERT
-            document.querySelector('.active')
-                .removeEventListener('click', cardTurnA)
+            // document.querySelector('.active')
+            //     .removeEventListener('click', cardTurnA)
         }
         else {
             hit = false
