@@ -1,12 +1,12 @@
 * {
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 0;
     font-size: 14px;
 }
 
 img {
-    width: 5rem;
+    width: 7rem;
     height: auto;
 }
 
@@ -45,7 +45,7 @@ footer {
 
 .cards {
     padding: 0;
-    margin: 0.8rem;
+    margin: 0.7rem;
 }
 
 .cards-container {
@@ -66,6 +66,10 @@ footer {
 
 .d-none {
     display: none;
+}
+
+.d-flex {
+    display: flex;
 }
 
 .home-link {

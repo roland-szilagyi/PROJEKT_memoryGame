@@ -14,7 +14,7 @@ console.log("Megkevert pakli sorrendje: ",cardsShuffle)
 
 // ÉRTÉKEK BETÖLTÉSE A DOBOZOKBA
 let atalakit = ertek => 
-`<div class="${ertek}  cards"></div>`
+`<div class="${ertek}"></div>`
 let tömbMegoldas = cardsShuffle.map(atalakit)
                                 .join('\n')
 
@@ -32,7 +32,7 @@ let F = document.querySelector('.F')
 // KÀRTYÀK MEGJELENÌTÈSE (HÀTOLDAL)
 function showCardBack(x) {
     x.innerHTML = (
-        `<img src="./src/assets/img/cardBackB.svg" alt="cardfront" class="cards">`
+        `<img src="./src/assets/img/cardBackB.svg" alt="cardfront">`
     )
 }
 showCardBack(A);
@@ -52,40 +52,44 @@ F.addEventListener('click', cardTurnF)
 
 // KÀRTYÀK MEGJELENÌTÈSE (ELEJE)
 function cardTurnA() {
-    document.querySelector('.A').classList.add('activeX')
+    document.querySelector('.A').classList.add('active')
     A.innerHTML = (
-        `<img src="./src/assets/img/cardJOKE.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/cardJOKE.svg" alt="cardback">`
     )
     cardALoad();
 }
 function cardTurnB() {
+    document.querySelector('.B').classList.add('active')
     B.innerHTML = (
-        `<img src="./src/assets/img/cardJOKE.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/cardJOKE.svg" alt="cardback">`
     )
     cardBLoad();
 }
 function cardTurnC() {
-    document.querySelector('.C').classList.add('activeX')
+    document.querySelector('.C').classList.add('active')
     C.innerHTML = (
-        `<img src="./src/assets/img/card2.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/card2.svg" alt="cardback">`
     )
     cardCLoad();
 }
 function cardTurnD() {
+    document.querySelector('.D').classList.add('active')
     D.innerHTML = (
-        `<img src="./src/assets/img/card2.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/card2.svg" alt="cardback">`
     )
     cardDLoad();
 }
 function cardTurnE() {
+    document.querySelector('.E').classList.add('active')
     E.innerHTML = (
-        `<img src="./src/assets/img/cardK.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/cardK.svg" alt="cardback">`
     )
     cardELoad();
 }
 function cardTurnF() {
+    document.querySelector('.F').classList.add('active')
     F.innerHTML = (
-        `<img src="./src/assets/img/cardK.svg" alt="cardback" class="cards">`
+        `<img src="./src/assets/img/cardK.svg" alt="cardback">`
     )
     cardFLoad();
 }
@@ -200,10 +204,15 @@ function ellenorzo() {
             
             setTimeout(Timer, 1000)
             function Timer() {
-
-                document.querySelector('.activeX').innerHTML = (
-                    `<img src="./src/assets/img/cardBackB.svg" alt="cardback" class="cards">`
-                )
+                document.querySelector('.active').innerHTML = (
+                    `<img src="./src/assets/img/cardbackB.svg" alt="cardback">`)
+                document.querySelector('.active').classList.remove('active')
+            }
+            setTimeout(Timer2, 1100)
+            function Timer2() {
+                document.querySelector('.active').innerHTML = (
+                    `<img src="./src/assets/img/cardbackB.svg" alt="cardback">`)
+                document.querySelector('.active').classList.remove('active')
             }
         }
         pushBox1.length = 0;
