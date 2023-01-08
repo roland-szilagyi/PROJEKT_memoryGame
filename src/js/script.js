@@ -396,3 +396,41 @@ function ellenorzo() {
         pushBox2.length = 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+function cardTolto(x) {
+    if ( x == true ) {
+        if ( pushBox1.length == 0 ) {
+            pushBox1.push(x)
+        }
+    
+        else if ( pushBox1 == x ) {
+            pushBox1 = x
+        }
+    
+        else {
+            pushBox2.push(x)
+        }
+        console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
+        controller()
+    }
+    }
+
+// ESEMÈNY FIGYELÖ - KÀRTYÀK FELFEDÈSE
+A1.addEventListener('click', cardTurnA1)
+function cardTurnA1() {
+    A1.classList.add('active')
+    A1.innerHTML = (
+        `<img src="./src/assets/img/cardA.svg" alt="cardback">`
+    )
+    A1 = "1"
+    cardTolto(A1)
