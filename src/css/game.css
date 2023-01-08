@@ -19,6 +19,16 @@ body {
     flex-direction: column;
 }
 
+@font-face {
+    font-family: interstate;
+    src: url(../assets/fonts/Interstate_mono_regular.ttf);
+}
+
+.font-interstate {
+    font-family: interstate;
+    font-size: 1.5rem;
+}
+
 /* ---------- BODY ---------- */
 
 header {
@@ -56,6 +66,8 @@ footer {
 .contents {
         /* outline: 1px solid white; */
     padding: 0.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 /* ---------- JS+ ---------- */

@@ -5,9 +5,43 @@
     let pushBox1 = [];
     let pushBox2 = [];
 
-// TALÀLAT GYÜJTÖ
+// GOMBOK
     let score = 0;
     let steps = 0;
+
+// LÈPÈSEK SZÀMLÀLÒJA
+    function stepsNum() {
+        steps += 1
+        document.querySelector('.js-steps').innerHTML = (`<p class="font-interstate">Steps: ${steps}</p>`)
+    }
+
+// IDŐ SZÀMLÀLÒ
+    let counter = setInterval(countTimer, 1000);
+    let totalSeconds = 0;
+    function countTimer() {
+        totalSeconds += 1;
+        let hour = Math.floor(totalSeconds / 3600);
+        let minute = Math.floor((totalSeconds - hour * 3600) / 60);
+        let seconds = totalSeconds - (hour * 3600 + minute * 60);
+            if ( minute < 10 ) {
+                minute = "0"+minute;
+            }
+            if ( seconds < 10 ) {
+                seconds = "0"+seconds;
+            }
+        document.querySelector('.js-time').innerHTML = minute + ":" + seconds;
+        }
+
+// RESTART
+    document.querySelector('.js-restart')
+        .addEventListener('click', restart)
+
+    function restart() {
+        score = 0;
+        steps = 0;
+        document.querySelector('.js-steps').innerHTML = (`<p class="font-interstate">Steps: ${steps}</p>`)
+        start()
+    }
 
 // KÁRTYA KEVERŐ
     function start() {
@@ -35,25 +69,39 @@
                 E1 = document.querySelector('.E1'), E2 = document.querySelector('.E2'),
                 F1 = document.querySelector('.F1'), F2 = document.querySelector('.F2')
 
+    // KÀRTYA FORDÌTÒ ESEMÈNY FIGYELŐK
+        function eventStart(x) {
+            x.addEventListener('click', turnCall)
 
-
-         // ESEMÈNY FIGYELÖ - KÀRTYÀK FELFEDÈSE
-            function eventStart(x) {
-                x.addEventListener('click', turnCall)
-
-                function turnCall() {
-                    cardTurn(x)
-                }
+            function turnCall() {
+                cardTurn(x)
+            }
+        }
+    // KÀRTYÀK FELFEDÈSE
+        function cardTurn(x) {
+            x.classList.add('active')
+            var cardName = (x.classList[0])
+            var inner = '<img src="./src/assets/img/card'+cardName+'.svg" alt="cardback">'
+            x.innerHTML = (inner)
+            cardLoad(x.classList[0])
+        }
+    // KÀRTYA ÈRTÈKEK PUSH-OLÀSA TÖMBÖKBE
+        function cardLoad(x) {
+            if ( pushBox1.length == 0 ) {
+                pushBox1.push(x)
             }
 
-            function cardTurn(x) {
-                x.classList.add('active')
-                let cardName = (x.classList[0])
-                let inner = '<img src="./src/assets/img/card'+cardName+'.svg" alt="cardback">'
-                x.innerHTML = (inner)
-                cardLoad(x.classList[0])
+            else if ( pushBox1 == x ) {
+                pushBox1 = Array(x)
             }
-        
+
+            else {
+                pushBox2.push(x)
+            }
+            console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
+            controller()
+        }
+
         eventStart(A1), eventStart(A2)
         eventStart(B1), eventStart(B2)
         eventStart(C1), eventStart(C2)
@@ -61,64 +109,53 @@
         eventStart(E1), eventStart(E2)
         eventStart(F1), eventStart(F2)
 
-        // KÀRTYA ÈRTÈKEK PUSH-OLÀSA TÖMBÖKBE
-            function cardLoad(x) {
-                if ( pushBox1.length == 0 ) {
-                    pushBox1.push(x)
-                }
+    // ELLENÖRZÖ FÜGGVÈNY - MEGVANNAK-E A PÀROK
+        function controller() {
+            if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
+                let eredmeny = pushBox1 + pushBox2
 
-                else if ( pushBox1 == x ) {
-                    pushBox1 = Array(x)
+                console.log(eredmeny)
+
+                if ( eredmeny[0] == eredmeny[2] ) {
+                    hit = true;
+                    document.querySelector('.active').classList.remove('active')
+                    document.querySelector('.active').classList.remove('active')
+                    stepsNum()            
                 }
 
                 else {
-                    pushBox2.push(x)
-                }
-                console.log("pushBox1:", pushBox1, "pushBox2:", pushBox2)
-                controller()
-            }
-
-        // ELLENÖRZÖ FÜGGVÈNY - MEGVANNAK-E A PÀROK
-            function controller() {
-                if ( ( pushBox1.length == 1 ) && ( pushBox2.length == 1 ) ) {
-                    let eredmeny = Number(pushBox1) + Number(pushBox2)      // number eredmeny
-
-                    if ( eredmeny == 13 ) {
-                        hit = true;
-                        console.log(hit, "Megtaláltad a párt")
-                        document.querySelector('.js-uzenet').innerHTML = "Megtaláltad a párt"
-
+                    hit = false
+                    setTimeout(Timer, 1000)
+                    function Timer() {
+                        document.querySelector('.active').innerHTML = (
+                            `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
                         document.querySelector('.active').classList.remove('active')
+                    }
+                    setTimeout(Timer2, 1100)
+                    function Timer2() {
+                        document.querySelector('.active').innerHTML = (
+                            `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
                         document.querySelector('.active').classList.remove('active')
-
-                        steps += 1;
-                        document.querySelector('.js-steps').innerHTML = ( `<p>Lépések száma: ${steps}</p>` )
-
                     }
-
-                    else {
-                        hit = false
-                        console.log(hit, "Nem találtad meg a párt")
-                        
-                        setTimeout(Timer, 1000)
-                        function Timer() {
-                            document.querySelector('.active').innerHTML = (
-                                `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
-                            document.querySelector('.active').classList.remove('active')
-                        }
-                        setTimeout(Timer2, 1100)
-                        function Timer2() {
-                            document.querySelector('.active').innerHTML = (
-                                `<img src="./src/assets/img/cardBackB.svg" alt="cardback">`)
-                            document.querySelector('.active').classList.remove('active')
-                        }
-                        steps += 1;
-                        document.querySelector('.js-steps').innerHTML = ( `<p>Lépések száma: ${steps}</p>` )
-                    }
-                    pushBox1.length = 0;
-                    pushBox2.length = 0;
+                    stepsNum()
                 }
+                pushBox1.length = 0;
+                pushBox2.length = 0;
             }
-}
+        }
+    }
 
 start()
+
+
+/*
+A1.addEventListener('click', mukodes)
+
+function mukodes() {
+    console.log("müködik")
+}
+
+function nemmukodes() {
+    A1.removeEventListener('dblclick', mukodes)
+}
+*/
